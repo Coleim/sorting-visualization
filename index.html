@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Sorting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+
+    /* Conteneur côte à côte */
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      align-items: flex-start;
+    }
+
+    .canvas-container {
+      text-align: center;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+      /* max-width: 300px; */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    /* Original cachée */
+    #origin {
+      display: none;
+    }
+
+    /* Liste des canvas triés côte à côte */
+    #sorted-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .sorted-item {
+      text-align: center;
+      background: white;
+      padding: 5px;
+      border-radius: 1px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Originale (cachée) -->
+  <canvas id="origin"></canvas>
+
+  <!-- Upscaled et Shuffled côte à côte -->
+  <div class="row">
+    <div class="canvas-container">
+      <h3>Origin</h3>
+      <canvas id="upscaled"></canvas>
+    </div>
+    <div class="canvas-container">
+      <h3>Shuffled</h3>
+      <canvas id="mixed"></canvas>
+    </div>
+  </div>
+
+  <!-- Bouton de tri -->
+  <button onclick="sort()">Sort</button>
+
+  <!-- Liste des canvas triés -->
+  <h2>Sorted</h2>
+  <div id="sorted-list">
+    <div class="sorted-item">
+      <h4>Bubble Sort</h4>
+      <canvas id="bubble"></canvas>
+        <span>Time: </span><span id="bubbleTime"></span>
+    </div>
+    <div class="sorted-item">
+      <h4>Insertion Sort</h4>
+      <canvas id="insertion"></canvas>
+      <span>Time: </span><span id="insertionTime"></span>
+    </div>
+    <div class="sorted-item">
+      <h4>Selection Sort</h4>
+      <canvas id="selection"></canvas>
+      <span>Time: </span><span id="selectionTime"></span>
+    </div>
+    <div class="sorted-item">
+      <h4>Heap Sort</h4>
+      <canvas id="heap"></canvas>
+    </div>
+    <div class="sorted-item">
+      <h4>Cocktail Sort</h4>
+      <canvas id="cocktail"></canvas>
+    </div>
+    <div class="sorted-item">
+      <h4>Circle Sort</h4>
+      <canvas id="circle"></canvas>
+    </div>
+    <div class="sorted-item">
+      <h4>Merge Sort</h4>
+      <canvas id="merge"></canvas>
+    </div>
+    <div class="sorted-item">
+      <h4>Shell Sort</h4>
+      <canvas id="shell"></canvas>
+    </div>
+    <!-- Tu peux ajouter d'autres canvas ici -->
+  </div>
+
+  <script src="./read.js"></script>
+</body>
+</html>
+
