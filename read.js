@@ -113,8 +113,13 @@ async function insertionSort(imgCtx, array, width) {
       drawPixel(imgCtx, array[j + 1], j + 1, width);
       j = j - 1
     }
-    await new Promise(resolve => requestAnimationFrame(resolve));
+
+    clearPixel(imgCtx, j + 1, width);
     array[j + 1] = elt
+    drawPixel(imgCtx, array[j + 1], j + 1, width);
+
+
+    await new Promise(resolve => requestAnimationFrame(resolve));
   }
   const end = performance.now()
 
